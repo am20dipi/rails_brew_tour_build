@@ -4,4 +4,10 @@ class Beer < ApplicationRecord
 
     belongs_to :brewery 
     belongs_to :user 
+
+
+    validates :name, presence: true
+    validates :type, presence: true
+    validates :abv, presence: true, numericality: true
+    validates :description, presence: true
 end
