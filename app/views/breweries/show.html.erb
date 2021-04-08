@@ -1,4 +1,5 @@
 <%= render partial: "brewery" %>
 
 
-<%= link_to "Edit", edit_brewery_path(@brewery) %>
+<%= link_to "Edit", edit_brewery_path(@brewery) %> <br>
+<%= button_to "Delete", brewery_path(@brewery), method: "delete", :confirm => "Are you sure?" %>

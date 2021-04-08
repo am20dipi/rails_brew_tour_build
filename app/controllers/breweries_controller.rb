@@ -1,6 +1,11 @@
 class BreweriesController < ApplicationController
     before_action :find_brewery, only: [:show, :edit, :update, :destroy]
     
+
+    def index
+        @breweries = Brewery.all
+    end
+    
     def show 
     end
     
@@ -23,7 +28,7 @@ class BreweriesController < ApplicationController
     end
 
     def update
-        @brewery.update(brewery_params(:name, :location, :year_established)) 
+        @brewery.update(brewery_params) 
         if @brewery.valid?
             redirect_to @brewery
         else
@@ -33,7 +38,7 @@ class BreweriesController < ApplicationController
 
     def destroy
         @brewery.destroy 
-        redirect_to @beer, :notice => "Successfully deleted."
+        redirect_to breweries_path, :notice => "Successfully deleted."
     end
 
     private 

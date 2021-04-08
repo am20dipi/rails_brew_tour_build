@@ -2,8 +2,9 @@
 
 <div>
     <% @beers.each do |beer| %>
-        <%= beer.name %>
-        <%= beer.abv %>
-        <%= beer.description %>
+        <p><%= link_to beer.name, beer_path(beer.id) %> </p>
+        <p><%= beer.abv %> Alcohol by Volume</p>
+        <p><%= beer.description %></p>
+        <p><%= beer.brewery.name %></p>
     <% end %>
 </div>
