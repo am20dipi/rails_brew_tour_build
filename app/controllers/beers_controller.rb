@@ -2,7 +2,7 @@ class BeersController < ApplicationController
     before_action :find_beer, only: [:show, :edit, :update, :destroy]
   
     def index
-        @beers = Beer.all
+        @beers = current_user.beers.all
     end
 
     def new 
@@ -13,7 +13,7 @@ class BeersController < ApplicationController
     end
 
     def create 
-        @beer = Beer.create(beer_params)
+        @beer = current_user.beers.build(beer_params)
         if @beer.save
             redirect_to @beer
         else

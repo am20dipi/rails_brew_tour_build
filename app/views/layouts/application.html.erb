@@ -11,18 +11,19 @@
   </head>
 
   <body>
-        <nav>
+        <div class="nav-bar">
           <% if logged_in? %>
-            <%= link_to "Logout", logout_path, method: "delete" %> |
-            <%= link_to 'New Beer', new_beer_path %> |
-            <%= link_to 'All Beers', beers_path %> |
-            <%= link_to 'New Brewery', new_brewery_path %> |
-            <%= link_to 'All Breweries', breweries_path %>
+            <a class="navbar-link <%= active_css(root_path)%>" href="/">Home</a>
+            <a class="navbar-link <%= active_css(logout_path)%>" href="/">Logout</a>
+            <a class="navbar-link <%= active_css(breweries_path)%>" href="/breweries">Breweries</a>
+            <a class="navbar-link <%= active_css(new_brewery_path)%>" href="/breweries/new">New Brewery</a>
+            <a class="navbar-link <%= active_css(new_beer_path)%>" href="/beers/new">New Beer</a>
+            <a class="navbar-link <%= active_css(beers_path)%>" href="/beers">Beers</a>
           <% else %>
-            <%= link_to "Sign Up", signup_path %> |
-            <%= link_to "Log In", login_path %> 
+            <a class="navbar-link <%= active_css(login_path)%>" href="/login">Login</a>
+            <a class="navbar-link <%= active_css(signup_path)%>" href="/signup">Signup</a>
           <% end %>
-        </nav>
+        </div>
     <%= yield %>
   </body>
 </html>

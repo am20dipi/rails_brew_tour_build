@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    before_action :logged_in?, only: [:new]
+    before_action :redirect_if_not_logged_in, only: [:new]
 
     def home 
     end
@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
             redirect_to '/login'
         end
     end
-
 
     def destroy
         session.clear
