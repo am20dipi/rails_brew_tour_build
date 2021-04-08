@@ -1,0 +1,12 @@
+<h1>Add a New Brewery</h1>
+<%= render partial: "beers/errors", locals: {object: @brewery} %>
+<br>
+<div>
+    <%= form_with(model: @brewery) do |f| %>
+        <%= render partial: "form", locals: {form_builder: f} %> 
+        <%= f.submit %>
+    <% end %>
+</div>
+
+<br>
+<%= link_to "Go Back", :back %>
