@@ -2,14 +2,12 @@
     <%= form_builder.label :name %>
     <%= form_builder.text_field :name %><br><br>
 
-    <%= form_builder.label :type %>
-    <%= form_builder.text_field :type %><br><br>
-
     <%= form_builder.label :abv %>
     <%= form_builder.number_field :abv %><br><br>
 
     <%= form_builder.label :description %>
     <%= form_builder.text_area :description %><br><br>
 
-    <%= form_builder.collection_select :brewery_id, Brewery.all, :id, :brewery %>
+    <%= form_builder.label :brewery %>
+    <%= form_builder.collection_select(:brewery_id, Brewery.all, :id, :name, {prompt: "Select A Brewery"}) %>
 </div>
