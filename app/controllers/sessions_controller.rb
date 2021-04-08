@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    before_action :redirect_if_not_logged_in, only: [:new]
+    before_action :logged_in?, only: [:show, :new]
+    before_action :redirect_if_not_logged_in, only: [:show]
 
     def home 
     end
@@ -9,18 +10,19 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        user = User.find_by(email: params[:user][:email])
-        if user && user.authenticate(params[:user][:password])
+        @user = User.find_by(email: params[:user][:email])
+        if @user && @user.authenticate(params[:user][:password])
         # if a user exists AND the user is authenticated via password
-            session[:user_id] = user.id
+            session[:user_id] = @user.id
 
-            redirect_to user_path(user)
+            redirect_to user_path(@user)
             # user_path(user) is the same as "/users/:id"
         else
             flash[:message] = "Sorry, please try again."
             redirect_to '/login'
         end
     end
+
 
     def destroy
         session.clear

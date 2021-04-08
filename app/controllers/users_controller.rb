@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
+        @user = User.create(user_params)
         if @user.save
             # log them in, since they are now signed up
             session[:user_id] = @user.id
@@ -19,13 +19,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
-        # what is the difference between "find_by_id" & "find"?
-        # "find" will portray an error if a user is not found; "find_by_id" will return NIL"
-        redirect_to '/' if !@user
-        # protection: redirect to home page is user is not found/does not exist
-    end
+        @user = User.find_by(id: params[:id])
+        @reviews = @user.reviews
+      end
 
 
 
