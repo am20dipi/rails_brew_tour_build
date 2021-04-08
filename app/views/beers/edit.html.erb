@@ -1,0 +1,12 @@
+<h1>Edit <%= @beer.name %></h1>
+<%= render partial: "errors", locals: {object: @beer} %>
+<br>
+<div>
+    <%= form_with(model: @beer) do |f| %>
+        <%= render partial: "form", locals: {form_builder: f} %> 
+        <%= f.submit %>
+    <% end %>
+</div>
+
+<br>
+<%= link_to "Go Back", :back %>

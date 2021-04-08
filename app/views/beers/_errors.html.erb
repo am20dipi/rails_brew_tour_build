@@ -1,0 +1,6 @@
+<% if object.errors.any? %>
+    <h5><%= pluralize(object.errors.count, "Error")%> prevented your brewery from being saved.</h5>
+        <% object.errors.full_messages.each do |sentence| %>
+            <h6><%= sentence %></h6>
+        <% end %>
+<% end %>
