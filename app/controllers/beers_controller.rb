@@ -2,15 +2,22 @@ class BeersController < ApplicationController
     before_action :find_beer, only: [:show, :edit, :update, :destroy]
   
     def index
-        @beers = current_user.beers.all
-    end
-
-    def new 
-       @beer = Beer.new 
-       @beer.reviews.build
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @beers = @user.beers
+        else  
+            @error = "That user does not exist." if params[:user_id]
+            @beers = Beer.all
+        end
     end
 
     def show
+    end
+    
+    
+    
+    def new 
+       @beer = Beer.new 
+       @beer.reviews.build
     end
 
     def create 
@@ -21,6 +28,8 @@ class BeersController < ApplicationController
             render :new
         end
     end
+
+    
 
     def edit
     end
