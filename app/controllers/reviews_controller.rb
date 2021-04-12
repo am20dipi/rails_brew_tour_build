@@ -8,23 +8,31 @@ class ReviewsController < ApplicationController
             # AND if @beer is NIL then find the instance of beer by its id
             @reviews = @beer.reviews
         else
+            @error = "That beer does not exist." if params[:beer_id]
             @reviews = Review.all
         end
         # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
     end
+
+    def show 
+    end
+
+
 
     def new
         @review = Review.new
     end
 
     def create 
-        @review = Review.create(review_params)
-        if @review.valid?
+        @review = current_user.reviews.build(review_params)
+        if @review.save
             redirect_to @beer 
         else
             render :new
         end
     end
+
+
 
     def edit
     end
