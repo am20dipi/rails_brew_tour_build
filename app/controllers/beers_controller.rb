@@ -18,6 +18,7 @@ class BeersController < ApplicationController
     def new 
        @beer = Beer.new 
        @beer.reviews.build
+       # .build instantiates, does not CREATE
     end
 
     def create 

@@ -58,3 +58,4 @@ Brewery
  - '/beers/:id/reviews'
  - Nested Routes should be focused on the parent tables. 
  - Need two (2) for requirements: either new, show, or index. 
+ - 

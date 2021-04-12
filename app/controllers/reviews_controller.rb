@@ -25,12 +25,14 @@ class ReviewsController < ApplicationController
             @review = @beer.reviews.build 
         else
             @review = Review.new
+            #form_builders require instance variables
         end
     end
 
     def create 
         @review = current_user.reviews.build(review_params)
         if @review.save
+            # .save triggers model validations
             redirect_to @review 
         else
             render :new
@@ -44,6 +46,7 @@ class ReviewsController < ApplicationController
 
     def update
         @review.update 
+        # .update triggers model validations
         if @review.save
             redirect_to @review
         else
