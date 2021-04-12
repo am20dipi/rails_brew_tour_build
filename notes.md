@@ -58,4 +58,17 @@ Brewery
  - '/beers/:id/reviews'
  - Nested Routes should be focused on the parent tables. 
  - Need two (2) for requirements: either new, show, or index. 
- - 
+ -  
+
+
+ RENDER V. REDIRECT
+ - Render:
+ - Redirect: 
+        - incurs a new page load; since HTTP is stateless, the browser throws everything out after each request (except for cookies, session hash).
+        - when we redirect after a validation failure, we lose the instance variable.
+
+ Authenticity Token(s):
+ - the token proves/ensures the forms are being submitted on the right website.
+ - Rails stores the token in the session object: 
+    - when a form is submitted, Rails checks that the form's token matches the session's token
+ - we are provided the authenticity token(s) through form_for, form_with

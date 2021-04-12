@@ -17,7 +17,9 @@ class BreweriesController < ApplicationController
     def create
         @brewery = Brewery.create(brewery_params)
         if @brewery.valid?
+            # .valid? returns T or F
             @brewery.save
+            # .save inserts into db 
             redirect_to @brewery
         else
             render :new
