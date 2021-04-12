@@ -2,7 +2,15 @@ class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :edit, :update, :destroy]
     
     def index
-        @reviews = Review.all
+        # how can I check if this is nested?
+        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+            # this means nested; if the url has .../:beer_id/...
+            # AND if @beer is NIL then find the instance of beer by its id
+            @reviews = @beer.reviews
+        else
+            @reviews = Review.all
+        end
+        # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
     end
 
     def new

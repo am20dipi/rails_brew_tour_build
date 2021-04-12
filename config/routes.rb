@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :beers
+  resources :beers do 
+    resources :reviews, only: [:index]
+  end
+  # '/beers/:beer_id/reviews'
+
   resources :users do 
     resources :beers, only: [:index]
   end
+  # '/users/:user_id/beers'
 
-  resources :breweries do 
-    resources :reviews, only: [:index]
-  end
-  
+  resources :breweries 
   resources :reviews 
 
 
