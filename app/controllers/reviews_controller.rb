@@ -20,7 +20,12 @@ class ReviewsController < ApplicationController
 
 
     def new
-        @review = Review.new
+        # if it is nested and we find the beer
+        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+            @review = @beer.reviews.build 
+        else
+            @review = Review.new
+        end
     end
 
     def create 
