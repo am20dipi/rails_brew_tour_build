@@ -8,10 +8,18 @@ class User < ApplicationRecord
 
 
     def self.from_omniauth(response)
-        User.find_by_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
+        user = User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.email = response[:info][:email]
             u.name = response[:info][:name]
             u.password = SecureRandom.hex(15)
+            # assigning a random password to avoid hacking
+            if user.valid?
+                session[:user_id] = user.id 
+                redirect_to user_path(user)
+            else
+                redirect_to '/'
+            end
+
         end
     end
 end
