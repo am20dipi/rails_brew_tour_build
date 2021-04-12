@@ -45,7 +45,7 @@ class ReviewsController < ApplicationController
     def update
         @review.update 
         if @review.save
-            redirect_to @beer
+            redirect_to @review
         else
             render :edit
         end

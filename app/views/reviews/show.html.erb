@@ -2,3 +2,8 @@
 
 <%= render partial: "review" %>
 
+
+<br><%= link_to "Edit", edit_review_path(@review) %>
+<br><%= link_to "Go Back", :back %>
+<br><%= link_to "Delete", review_path(@review), method: "delete", :confirm => "Are you sure?" %>
+
