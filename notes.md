@@ -50,3 +50,11 @@ Brewery
  - Cookies let you store data in a user's browser. 
  - Cookies are primarily are used for log in. They provide a way for us to verify who a user is once, and then remember it for their entire session. 
  - Rails session method gives us access to the Rails session. 
+
+
+ Nested Routes:
+ - '/users/:id/beers'
+ - '/users/:id/reviews'
+ - '/beers/:id/reviews'
+ - Nested Routes should be focused on the parent tables. 
+ - Need two (2) for requirements: either new, show, or index. 
