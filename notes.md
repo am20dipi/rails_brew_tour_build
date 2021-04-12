@@ -62,8 +62,9 @@ Brewery
 
 
  RENDER V. REDIRECT
- - Render:
- - Redirect: 
+ - Render: (view)
+        - objects remain, pre-filled forms
+ - Redirect: (/url) 
         - incurs a new page load; since HTTP is stateless, the browser throws everything out after each request (except for cookies, session hash).
         - when we redirect after a validation failure, we lose the instance variable.
 

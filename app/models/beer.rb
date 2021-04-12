@@ -10,4 +10,6 @@ class Beer < ApplicationRecord
     validates :name, presence: true
     validates :abv, presence: true, numericality: true
     validates :description, presence: true
+
+    scope :alphabetical, -> { order('name ASC') }
 end

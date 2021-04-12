@@ -6,7 +6,7 @@ class BeersController < ApplicationController
             @beers = @user.beers
         else  
             @error = "That user does not exist." if params[:user_id]
-            @beers = Beer.all
+            @beers = Beer.all.alphabetical
         end
     end
 
