@@ -8,4 +8,8 @@
     <%= form_builder.label :rating %>
     <%= form_builder.number_field :rating %><br><br>
 
+    <%= form_builder.hidden_field :beer_id %>
+
+    <%= form_builder.label :beer %>
+    <%= form_builder.collection_select(:beer_id, Beer.all, :id, :name) %><br><br>
 </div>

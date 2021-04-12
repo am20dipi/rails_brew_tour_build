@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new]
   end
   # '/beers/:beer_id/reviews'
+  # '/beers/:beer_id/reviews/new'
+
+  post '/beers/:beer_id/reviews' => 'reviews#create'
 
   resources :users do 
     resources :beers, only: [:index]
