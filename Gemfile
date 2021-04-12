@@ -21,6 +21,8 @@ gem 'dotenv-rails'
 
 gem 'omniauth-google-oauth2'
 
+gem 'omniauth-rails_csrf_protection'
+
 
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

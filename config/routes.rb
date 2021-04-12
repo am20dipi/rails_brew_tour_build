@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   # the route that displays the login page
+  get '/auth/:provider/callback' => 'sessions#omniauth'
   post '/login' => 'sessions#create'
   # the route that processes the submission
 
