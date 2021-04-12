@@ -1,5 +1,9 @@
-<h4><%= @beer.name %></h4>
+<h3><%= @beer.name %></h3>
 
 <%= render partial: "beer" %>
 
-<%= link_to "Edit", edit_beer_path(@beer) %>
+<%= render partial: "reviews/review" %>
+
+<br><%= link_to "Edit", edit_beer_path(@beer) %>
+<br><%= link_to "Go Back", :back %>
+<br><%= link_to "Delete", beer_path(@beer), method: "delete", :confirm => "Are you sure?" %>

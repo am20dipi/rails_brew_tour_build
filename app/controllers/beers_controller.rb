@@ -7,6 +7,7 @@ class BeersController < ApplicationController
 
     def new 
        @beer = Beer.new 
+       @beer.reviews.build
     end
 
     def show
@@ -44,6 +45,6 @@ class BeersController < ApplicationController
     end
 
     def beer_params
-        params.require(:beer).permit(:name, :abv, :description, :user_id, :brewery_id, brewery_attributes: [])
+        params.require(:beer).permit(:name, :abv, :description, :user_id, :brewery_id, :review_id, brewery_attributes: [], review_attributes: [])
     end
 end

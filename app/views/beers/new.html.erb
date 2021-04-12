@@ -4,6 +4,18 @@
 <div>
     <%= form_with(model: @beer) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
+
+        <hr>Add a Review!<br><br>
+        <%= f.fields_for :reviews, @beer.reviews.build do |reviews_field| %>
+            <%= reviews_field.label "Title:"%>
+            <%= reviews_field.text_field :title %><br>
+
+            <%= reviews_field.label "Content:"%>
+            <%= reviews_field.text_area :content %><br>
+
+            <%= reviews_field.label "Rating:"%>
+            <%= reviews_field.number_field :rating %><br>
+        <% end %> 
         <%= f.submit %>
     <% end %>
 </div>

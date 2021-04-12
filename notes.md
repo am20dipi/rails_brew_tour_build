@@ -40,3 +40,13 @@ Brewery
  - A Brewery has_many Beers [x]
 
  - A Beer belongs_to a User [x]
+
+
+
+ Sessions/Cookies:
+ - The session behaves like a hash: session[:user_id] = @user.id
+ - A session is a datastore implemented with cookies.
+ - Rails manages all session data in a single cookie, named _RAILS_BREW_TOUR_BUILD_session.. this serializes all the key/value pairs you set with session, converting them from a Ruby Object into a big string. 
+ - Cookies let you store data in a user's browser. 
+ - Cookies are primarily are used for log in. They provide a way for us to verify who a user is once, and then remember it for their entire session. 
+ - Rails session method gives us access to the Rails session. 
