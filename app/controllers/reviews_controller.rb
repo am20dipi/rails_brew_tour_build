@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
             @reviews = @beer.reviews
         else
             @error = "That beer does not exist." if params[:beer_id]
-            @reviews = Review.all
+            @reviews = Review.all.newest_to_oldest
         end
         # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
     end
