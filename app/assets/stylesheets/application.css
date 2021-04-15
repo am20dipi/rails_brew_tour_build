@@ -51,8 +51,8 @@ body {
 }
 
 .content {
-    float: left;
-    width: 60%; /* 480px / 800px */
+    float: center;
+    width: 50%; /* 480px / 800px */
 }
 
 div.navbar {
