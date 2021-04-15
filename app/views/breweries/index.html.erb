@@ -1,8 +1,10 @@
 <h1>Breweries</h1>
 
 
-<div class="content">
+<div>
     <% @breweries.each do |b| %>
-        <li><%= link_to b.name, brewery_path(b) %> </li>
+        <ul>
+            <li><%= link_to b.name, brewery_path(b) %></li>
+        </ul>
     <% end %>
 </div>

@@ -52,14 +52,23 @@ body {
 
 
 .content {
-    padding: 2%;
-    float: left;
+    padding: 1%;
     width: 50%; /* 480px / 800px */
+}
+
+ul {
+    margin:0;
+    padding:0;
+    text-align: center;
+    list-style: none;                
+}
+ul  li {
+    padding: 2px 5px;               
 }
 
 div.navbar {
     background: rgba(238, 238, 238, 0);
-    float: center;
+    text-align: center;
     padding: 2%; /* 5px / 240px */
     width: 60%; /* 240px / 800px */
     max-width: 60%;    
@@ -68,7 +77,7 @@ div.navbar {
 
 a.navbar-link {
     border-radius: 40px;
-    background-color: #dbc08d;
+    background-color: #6d7e46;
     color: white;
     font-size: 16px;
     text-decoration: none;
@@ -76,10 +85,17 @@ a.navbar-link {
 
 }
 
+.navbar-link:hover {
+    background-color: #d81681;
+}
+
 
 h1 {
     font-size: 36px;
     line-height: 54px;
+    padding:20px;
+    overflow: auto;
+    text-align: center;
 }
 
 h2 {
