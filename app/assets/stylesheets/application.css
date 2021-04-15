@@ -52,10 +52,9 @@ body {
 
 
 .content {
-    position: relative;
     text-align: center;
     padding: 1%;
-    width: 50%; /* 480px / 800px */
+    width: 100%; /* 480px / 800px */
 }
 
 ul {
@@ -73,8 +72,8 @@ div.navbar {
     background: rgba(238, 238, 238, 0);
     text-align: center;
     padding: 2%; /* 5px / 240px */
-    width: 50%; /* 240px / 800px */
-    max-width: 50%;    
+    width: 100%; /* 240px / 800px */
+    max-width: 100%;    
     min-width: 1000px;
 }
 
@@ -113,6 +112,7 @@ h2 {
 h3 {
     font-size: 18px;
     line-height: 36px;
+    text-align: center;
 }
 
 h4 {
@@ -126,4 +126,12 @@ h5 {
 p {
     margin-bottom: 20px;
     text-transform: capitalize;
+}
+
+.form-button {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 12px 18px;
+    text-align: center;
 }

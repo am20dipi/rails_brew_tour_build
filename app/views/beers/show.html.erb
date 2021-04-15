@@ -1,10 +1,14 @@
 <h3><%= @beer.name %></h3>
 
-<%= render partial: "beer" %>
+<div class="content">
+    <%= render partial: "beer" %>
 
-<%= link_to "See All Reviews", beer_reviews_path(@beer) %>
-<%= link_to "Add a New Review", new_beer_review_path(@beer) %>
+    <%= link_to "See All Reviews", beer_reviews_path(@beer) %>
+    <%= link_to "Add a New Review", new_beer_review_path(@beer) %>
+</div>
 
-<br><%= link_to "Edit", edit_beer_path(@beer) %>
-<br><%= link_to "Go Back", :back %>
-<br><%= link_to "Delete", beer_path(@beer), method: "delete", :confirm => "Are you sure?" %>
+<div class="content">
+    <br><%= link_to "Edit", edit_beer_path(@beer) %>
+    <br><%= link_to "Go Back", :back %>
+    <br><%= link_to "Delete", beer_path(@beer), method: "delete", :confirm => "Are you sure?" %>
+</div>

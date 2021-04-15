@@ -4,7 +4,10 @@
 <div>
     <%= form_with(model: @beer) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
-        <%= f.submit %>
+        
+        <div class="form-button">
+            <%= f.submit %>
+        </div>
     <% end %>
 </div>
 
