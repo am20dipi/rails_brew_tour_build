@@ -1,9 +1,16 @@
 <h1><%= @review.beer.name %></h1>
 
-<%= render partial: "review" %>
+<div class="content">
+    <%= render partial: "review" %>
+</div>
 
 
-<br><%= link_to "Edit", edit_review_path(@review) %>
-<br><%= link_to "Go Back", :back %>
-<br><%= link_to "Delete", review_path(@review), method: "delete", :confirm => "Are you sure?" %>
+<br><br>
+
+<div class="bottom-nav">
+    <a class="bottom-nav-link <%= active_css(edit_review_path(@review)) %>" href="/reviews/<%= @review.id %>/edit">Edit</a><br><br>
+    <%= form_with(model: @review, method: :delete) do |f| %>
+         <%= f.submit "Delete", class: "delete-button" %>
+    <% end %>
+</div>
 
