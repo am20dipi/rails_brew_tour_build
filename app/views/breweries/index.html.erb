@@ -2,8 +2,6 @@
 
 <div>
     <% @breweries.each do |b| %>
-        <p><%= link_to b.name, brewery_path(b) %> </p>
-        <p><%= b.location %></p>
-        <p><%= b.year_established %></p>
+        <li><%= link_to b.name, brewery_path(b) %> </li>
     <% end %>
 </div>
