@@ -53,7 +53,6 @@ body {
 
 .content {
     text-align: center;
-    padding: 1%;
     width: 100%; /* 480px / 800px */
 }
 
@@ -71,7 +70,7 @@ div.navbar {
     position: relative;
     background: rgba(238, 238, 238, 0);
     text-align: center;
-    padding: 2%; /* 5px / 240px */
+    padding: 1.5%; /* 5px / 240px */
     width: 100%; /* 240px / 800px */
     max-width: 100%;    
     min-width: 1000px;
@@ -103,10 +102,11 @@ h1 {
 }
 
 h2 {
-    border-top: 2px solid rgb(100, 128, 89);
+    border-top: 2px solid rgb(0, 0, 0);
     font-size: 24px;
     line-height: 42px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 h3 {
@@ -137,10 +137,8 @@ p {
 }
 
 div.bottom-nav {
-    position: relative;
     background: rgba(238, 238, 238, 0);
     text-align: center;
-    padding: 2%; /* 5px / 240px */
     width: 100%; /* 240px / 800px */
     max-width: 100%;    
     min-width: 1000px;

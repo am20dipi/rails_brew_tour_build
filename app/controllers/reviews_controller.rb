@@ -45,7 +45,7 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @review.update 
+        @review.update(review_params) 
         # .update triggers model validations
         if @review.save
             redirect_to @review
