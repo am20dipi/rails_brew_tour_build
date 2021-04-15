@@ -1,5 +1,8 @@
-<%= render partial: "brewery" %>
+<div class="content">
+    <%= render partial: "brewery" %>
+    <%= render partial: "brewery_beers"%>
+</div>
 
 
-<%= link_to "Edit", edit_brewery_path(@brewery) %> <br>
+<%= link_to "Edit", edit_brewery_path(@brewery) %> <br><br>
 <%= button_to "Delete", brewery_path(@brewery), method: "delete", :confirm => "Are you sure?" %>

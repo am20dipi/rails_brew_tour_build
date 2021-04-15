@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   end
   # '/users/:user_id/beers'
 
-  resources :breweries 
+  resources :breweries do
+    resources :beers, only: [:show] 
+  end
+
   resources :reviews 
 
 

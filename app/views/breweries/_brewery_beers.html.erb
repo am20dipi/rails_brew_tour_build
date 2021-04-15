@@ -1,0 +1,3 @@
+<% @brewery.beers.each do |brewery_beer| %>
+    <%= link_to brewery_beer.name, brewery_beer_path(@brewery) %>
+<% end %>
