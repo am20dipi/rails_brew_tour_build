@@ -11,5 +11,6 @@
     <% end %>
 </div>
 
-<br>
-<%= link_to "Go Back", :back %>
+<div class="bottom-nav">
+    <a class="bottom-nav-link <%= active_css(beer_path(@beer)) %>" href="/beers/<%= @beer.id %>">Nevermind!</a>
+</div>

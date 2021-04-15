@@ -6,9 +6,11 @@
     <%= link_to "See All Reviews", beer_reviews_path(@beer) %>
     <%= link_to "Add a New Review", new_beer_review_path(@beer) %>
 </div>
+<br><br>
 
-<div class="content">
-    <br><%= link_to "Edit", edit_beer_path(@beer) %>
-    <br><%= link_to "Go Back", :back %>
-    <br><%= link_to "Delete", beer_path(@beer), method: "delete", :confirm => "Are you sure?" %>
+<div class="bottom-nav">
+    <a class="bottom-nav-link <%= active_css(edit_beer_path(@beer)) %>" href="/beers/<%= @beer.id %>/edit">Edit</a><br><br>
+    <%= form_with(model: @beer, method: :delete) do |f| %>
+         <%= f.submit "Delete", class: "delete-button" %>
+    <% end %>
 </div>
