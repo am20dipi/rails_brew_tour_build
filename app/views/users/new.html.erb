@@ -1,20 +1,21 @@
 <h1>Signup</h1>
 <%= flash[:message] if flash[:message] %><br><br>
 
-<%= form_for(@user) do |f| %>
-    <!-- to use "@user", I defined the instance variable in the UsersController in the new method -->
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
+<div class="content">
+    <%= form_for(@user) do |f| %>
+        <!-- to use "@user", I defined the instance variable in the UsersController in the new method -->
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %><br><br>
+        <%= f.label :email %>
+        <%= f.email_field :email %><br><br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br><br>
-    <!-- we use :password instead of :password_digest to avoid storing the string -->
+        <%= f.label :password %>
+        <%= f.password_field :password %><br><br>
+        <!-- we use :password instead of :password_digest to avoid storing the string -->
 
-    <%= f.submit "Submit" %>
+        <%= f.submit "Submit" %>
 
-<% end %>
-
+    <% end %>
+</div>
 <!-- after submission, our application sends us to the "/users" action>
