@@ -1,3 +1,6 @@
-<% @brewery.beers.each do |brewery_beer| %>
-    <%= link_to brewery_beer.name, brewery_beer_path(@brewery) %>
-<% end %>
+<h2>Featured Beers</h2>
+<ul>
+    <% @brewery.beers.each do |brewery_beer| %>
+        <li><%= link_to brewery_beer.name, brewery_beer_path(@brewery) %></li>
+    <% end %>
+</ul>

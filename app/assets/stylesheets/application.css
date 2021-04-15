@@ -103,9 +103,9 @@ h1 {
 }
 
 h2 {
-    border-bottom: 2px solid;
+    border-top: 2px solid rgb(100, 128, 89);
     font-size: 24px;
-    line-height: 36px;
+    line-height: 42px;
     margin-bottom: 16px;
 }
 
