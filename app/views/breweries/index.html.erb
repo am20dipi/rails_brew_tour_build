@@ -4,7 +4,7 @@
 <div>
     <% @breweries.each do |b| %>
         <ul>
-            <li><%= link_to b.name, brewery_path(b) %></li>
+            <li><h3><%= link_to b.name, brewery_path(b) %></h3></li>
         </ul>
     <% end %>
 </div>
