@@ -57,9 +57,11 @@ body {
 
 div.navbar {
     background: rgba(238, 238, 238, 0);
-    float: left;
+    float: center;
     padding: 2%; /* 5px / 240px */
     width: 60%; /* 240px / 800px */
+    max-width: 60%;    
+    min-width: 1000px;
 }
 
 a.navbar-link {
@@ -70,22 +72,6 @@ a.navbar-link {
     text-decoration: none;
     padding: 12px 18px;
 
-}
-
-
-
-.button{
-    display:inline-block;
-    padding:0.35em 1.2em;
-    margin:0 0.3em 0.3em 0;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-family:'Courier New', Courier, monospace;
-    font-weight:300;
-    color:#000000;
-    text-align:center;
-    transition: all 0.2s;
 }
 
 
