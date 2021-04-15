@@ -11,7 +11,7 @@
   </head>
 
   <body>
-        <div class="nav-bar">
+        <div class="navbar">
           <% if logged_in? %>
             <a class="navbar-link <%= active_css(root_path)%>" href="/">Home</a>
             <a class="navbar-link <%= active_css(logout_path)%>" href="/">Logout</a>
@@ -30,6 +30,8 @@
         <% end %>
         <%= @error %>
       </div>
-    <%= yield %>
+      <div class="content">
+        <%= yield %>
+      </div>
   </body>
 </html>
