@@ -1,14 +1,17 @@
 <h1>Edit <%= @brewery.name %></h1>
+
 <%= render partial: "beers/errors", locals: {object: @brewery} %>
+
 <br>
-<div>
+<div class="content">
     <%= form_with(model: @brewery) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
         <div class="form-button">
             <%= f.submit %>
         </div>
     <% end %>
-</div>
+</div><br>
 
-<br>
-<%= link_to "Go Back", :back %>
+<div class="bottom-nav">
+    <a class="bottom-nav-link <%= active_css(brewery_path(@brewery)) %>" href="/breweries/<%= @brewery.id %>">Nevermind!</a>
+</div>

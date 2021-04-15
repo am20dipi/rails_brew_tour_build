@@ -1,7 +1,7 @@
 <h1>Edit Your <%= @review.beer.name %> Review</h1>
 
 <br>
-<div>
+<div class="content">
     <%= form_with(model: @review) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
         
