@@ -3,6 +3,11 @@
     <%= render partial: "brewery_beers"%>
 </div>
 
-
-<%= link_to "Edit", edit_brewery_path(@brewery) %> <br><br>
-<%= button_to "Delete", brewery_path(@brewery), method: "delete", :confirm => "Are you sure?" %>
+    <br>
+    <br>
+<div class="bottom-nav">
+    <a class="bottom-nav-link <%= active_css(edit_brewery_path(@brewery)) %>" href="/breweries/<%= @brewery.id %>/edit">Edit</a><br><br>
+    <%= form_with(model: @brewery, method: :delete) do |f| %>
+         <%= f.submit "Delete", class: "delete-button" %>
+    <% end %>
+</div>
