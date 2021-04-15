@@ -32,11 +32,15 @@ div.navbar-link a {
 }
 
 div.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 250px;
+    max-width: 250px;
+    padding: 20px; 
+    justify-content: center;
+    background-color: #8fc45d;
 }
 
 
@@ -46,4 +50,46 @@ div.navbar {
     background-color: #f7c12e9d;
     display: flex;
     justify-content: center;
+}
+
+
+a.button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Courier New', Courier, monospace;
+    font-weight:300;
+    color:#000000;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+
+h1 {
+    font-size: 36px;
+    line-height: 54px;
+}
+
+h2 {
+    border-bottom: 2px solid rgb(199, 161, 161);
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 36px;
+}
+
+h5 {
+    color:rgb(202, 145, 92)
+}
+
+p {
+    margin-bottom: 18px;
+    text-transform: capitalize;
 }
