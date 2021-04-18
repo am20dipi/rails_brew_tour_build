@@ -199,3 +199,7 @@ a.bottom-nav-link {
     font-family: 'Courier New', Courier, monospace;
 
 }
+
+a.images-left {
+    align-items: left;
+}
