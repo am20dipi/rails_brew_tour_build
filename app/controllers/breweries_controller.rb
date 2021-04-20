@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
     before_action :find_brewery, only: [:show, :edit, :update, :destroy]
-    helper_method :current_user, :logged_in?
+    before_action :logged_in?, only: [:create, :update, :destroy]
 
     def index
         if logged_in?
@@ -15,12 +15,15 @@ class BreweriesController < ApplicationController
     end
     
     
+    
+    
+    
     def new
         @brewery = Brewery.new
     end
 
     def create
-        @brewery = Brewery.create(brewery_params)
+        @brewery = current_user.breweries.build(brewery_params)
         if @brewery.valid?
             # .valid? returns T or F
             @brewery.save

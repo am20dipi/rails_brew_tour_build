@@ -1,13 +1,15 @@
 class BeersController < ApplicationController
     before_action :find_beer, only: [:show, :edit, :update, :destroy]
-  
+    before_action :logged_in?, only: [:create, :update, :destroy]
+    
     def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @beers = @user.beers
-        else  
-            @error = "That user does not exist." if params[:user_id]
-            @beers = Beer.all.alphabetical
+        if logged_in?
+            @beers = current_user.beers
+            render :'beers/index'
+        else
+            redirect_if_not_logged_in
         end
+        @beers = Beer.all.alphabetical
     end
 
     def show
@@ -24,7 +26,8 @@ class BeersController < ApplicationController
 
     def create 
         @beer = current_user.beers.build(beer_params)
-        if @beer.save
+        if @beer.valid?
+            @beer.save
             redirect_to @beer
         else
             render :new
