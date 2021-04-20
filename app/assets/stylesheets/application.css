@@ -54,6 +54,7 @@ body {
 .content {
     text-align: center;
     width: 100%; /* 480px / 800px */
+    max-width: 100%;
 }
 
 ul {
