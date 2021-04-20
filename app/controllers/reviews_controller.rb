@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :edit, :update, :destroy]
+    before_action :logged_in?, only: [:create, :update, :destroy]
     
     def index
         # how can I check if this is nested?

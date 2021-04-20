@@ -5,11 +5,11 @@
     <p>Use our handy nav bar on top of the page to dive into the world of beers.</p>
  </div>
 
-
+<br>
  <div class="content">
-    <p><% @user.breweries.count %></p>
-    <p><% @user.beers.count %></p>
-    <p><% @user.reviews.count %></p>
+    <p>Number of Breweries: <%= @user.breweries.count %></p>
+    <p>Number of Beers: <%= @user.beers.count %></p>
+    <p>Number of Reviews: <%= @user.reviews.count %></p>
  </div>
 
 
