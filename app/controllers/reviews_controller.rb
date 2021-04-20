@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
 
     def destroy 
         @review.destroy
-        redirect_to @beer
+        redirect_to beer_reviews_path
     end
 
     private

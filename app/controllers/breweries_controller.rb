@@ -20,6 +20,7 @@ class BreweriesController < ApplicationController
     
     def new
         @brewery = Brewery.new
+        @brewery.beers.build
     end
 
     def create
