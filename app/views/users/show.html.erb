@@ -1,5 +1,16 @@
 <h1>Welcome <%= @user.name.capitalize %>!</h1>
  
+<div class="content">
+    <p>This is your home page. Come here to find some stats about your Brew Tour account.</p>
+    <p>Use our handy nav bar on top of the page to dive into the world of beers.</p>
+ </div>
+
+
+ <div class="content">
+    <p><% @user.breweries.count %></p>
+    <p><% @user.beers.count %></p>
+    <p><% @user.reviews.count %></p>
+ </div>
 
 
 

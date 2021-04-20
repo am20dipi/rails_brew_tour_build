@@ -19,6 +19,7 @@
             <a class="navbar-link <%= active_css(new_beer_path)%>" href="/beers/new">New Beer</a>
             <a class="navbar-link <%= active_css(beers_path)%>" href="/beers">Beers</a>
             <a class="navbar-link <%= active_css(new_review_path)%>" href="/reviews/new">New Review</a>
+            <a class="navbar-link <%= active_css(user_path(current_user))%>" href="/users/<%= current_user.id %>">Home</a>
           <% else %>
             <a class="navbar-link <%= active_css(login_path)%>" href="/login">Login</a>
             <a class="navbar-link <%= active_css(signup_path)%>" href="/signup">Signup</a>
