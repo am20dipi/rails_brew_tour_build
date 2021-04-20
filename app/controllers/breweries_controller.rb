@@ -1,9 +1,14 @@
 class BreweriesController < ApplicationController
     before_action :find_brewery, only: [:show, :edit, :update, :destroy]
-    
+    helper_method :current_user, :logged_in?
 
     def index
-        @breweries = Brewery.all
+        if logged_in?
+            @breweries = current_user.breweries
+            render :'breweries/index'
+        else
+            redirect_if_not_logged_in
+        end
     end
     
     def show 
