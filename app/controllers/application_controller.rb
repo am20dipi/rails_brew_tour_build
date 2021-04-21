@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     # gives us access to these methods in the views
 
         def logged_in?
+            #byebug
             !!session[:user_id]
         end
 
@@ -17,7 +18,4 @@ class ApplicationController < ActionController::Base
             # MEMOIZATION
         end
 
-        def redirect_if_logged_in
-            redirect_to current_user if logged_in?
-        end
 end

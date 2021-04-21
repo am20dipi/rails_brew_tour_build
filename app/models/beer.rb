@@ -4,10 +4,9 @@ class Beer < ApplicationRecord
     accepts_nested_attributes_for :reviews
 
     belongs_to :brewery 
-    belongs_to :user, optional: true
+    #belongs_to :user
 
-
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
     validates :abv, presence: true, numericality: true
     validates :description, presence: true
 

@@ -13,7 +13,6 @@
   <body>
         <div class="navbar">
           <% if logged_in? %>
-            <a class="navbar-link <%= active_css(user_path(current_user))%>" href="/users/<%= current_user.id %>">Home</a>
             <a class="navbar-link <%= active_css(logout_path)%>" href="/">Logout</a>
             <a class="navbar-link <%= active_css(breweries_path)%>" href="/breweries">Breweries</a>
             <a class="navbar-link <%= active_css(new_brewery_path)%>" href="/breweries/new">New Brewery</a>
