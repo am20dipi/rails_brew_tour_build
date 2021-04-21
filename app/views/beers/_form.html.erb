@@ -10,6 +10,17 @@
 
     <%= form_builder.label :brewery %>
     <%= form_builder.collection_select(:brewery_id, Brewery.all, :id, :name, {prompt: "Select A Brewery"}) %><br><br>
+    <hr><h4>Add a Comment</h4>
+        <%= form_builder.fields_for :reviews, @beer.reviews.build do |reviews_field| %>
+            <%= reviews_field.label :title %><br>
+            <%= reviews_field.text_field :title %><br><br>
+
+            <%= reviews_field.label :content %><br>
+            <%= reviews_field.text_area :content %><br><br>
+
+            <%= reviews_field.label :rating %><br>
+            <%= reviews_field.number_field :rating %><br><br>
+        <% end %> 
 
 
 </div>

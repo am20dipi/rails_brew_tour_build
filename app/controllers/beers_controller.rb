@@ -19,6 +19,7 @@ class BeersController < ApplicationController
     
     def new 
        @beer = Beer.new 
+       byebug
        # .new instantiates a new AR model, without saving it to the db.
        @beer.reviews.build
        # .build instantiates, does not CREATE
