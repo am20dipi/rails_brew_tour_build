@@ -1,10 +1,15 @@
 <h1>Breweries</h1>
 
 
-<div>
+<div class="content">
+<% if @breweries.count < 1 %>
     <% @breweries.each do |b| %>
         <ul>
             <li><h3><%= link_to b.name, brewery_path(b) %></h3></li>
         </ul>
     <% end %>
+<% else %>
+    <p>Sorry, you do not have any breweries yet.</p>
+    <p>Add a brewery by clicking the button above!</p>
+<% end %>
 </div>

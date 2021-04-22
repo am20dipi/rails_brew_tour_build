@@ -1,11 +1,11 @@
 class BreweriesController < ApplicationController
     before_action :find_brewery, only: [:show, :edit, :update, :destroy]
-    before_action :logged_in?, only: [:create, :update, :destroy]
+    before_action :logged_in?, only: [:new, :create, :update, :destroy]
 
     def index
         #byebug
         if logged_in?
-            @breweries = current_user.breweries
+            @breweries = current_user.breweries.all
             render :'breweries/index'
         else
             redirect_if_not_logged_in
@@ -56,7 +56,7 @@ class BreweriesController < ApplicationController
     private 
 
     def brewery_params
-        params.require(:brewery).permit(:name, :location, :year_established)
+        params.require(:brewery).permit(:name, :location, :year_established, :beer_id, :user_id)
     end
 
     def find_brewery

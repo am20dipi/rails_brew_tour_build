@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     def index
         redirect_if_not_logged_in
         # how can I check if this is nested?
-        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+        if params[:beer_id] && @beer = current_user.beers.find_by_id(params[:beer_id])
             # this means nested; if the url has .../:beer_id/...
             # AND if @beer is NIL then find the instance of beer by its id
             @reviews = @beer.reviews
@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
             @reviews = current_user.reviews.newest_to_oldest
         end
         # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
+        # it will go to the else if it is either not nested or nested and cannot find the :beer_id
     end
 
     def show 
@@ -67,6 +68,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:title, :content, :rating, :beer_id)
+        params.require(:review).permit(:title, :content, :rating, :user_id, :beer_id)
     end
 end

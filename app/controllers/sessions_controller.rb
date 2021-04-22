@@ -9,16 +9,16 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        @user = User.find_by(email: params[:user][:email])
-        if @user && @user.authenticate(params[:user][:password])
+        user = User.find_by(email: params[:user][:email])
+        if user && user.authenticate(params[:user][:password])
         # if a user exists AND the user is authenticated via password
-            session[:user_id] = @user.id
+            session[:user_id] = user.id
 
-            redirect_to user_path(@user)
+            redirect_to user_path(user)
             # user_path(user) is the same as "/users/:id"
         else
             flash[:message] = "Sorry, please try again."
-            redirect_to '/login'
+            render :new
         end
     end
 
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.clear
-        redirect_to root_path
+        session[:user_id] = nil
+        redirect_to login_path, notice: "Logged out"
     end
 end

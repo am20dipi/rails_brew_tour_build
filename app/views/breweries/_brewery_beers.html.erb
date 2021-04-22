@@ -1,6 +1,11 @@
 <h2>Featured Beers</h2>
 <ul>
-    <% @brewery.beers.each do |brewery_beer| %>
-        <li><%= link_to brewery_beer.name, brewery_beer_path(@brewery) %></li>
+<% if @brewery.beers.count < 0 %>
+    <% @brewery.beers.each do |beer| %>
+        <li><%= link_to beer.name, beer_path(beer.id) %></li>
     <% end %>
+<% else %>
+    <p>Sorry, you don't have any beers yet.</p>
+    <p>Add a Beer by clicking the button in the nav bar!</p>
+<% end %>
 </ul>

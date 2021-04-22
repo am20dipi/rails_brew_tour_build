@@ -9,7 +9,7 @@ class BeersController < ApplicationController
         else
             redirect_if_not_logged_in
         end
-        @beers = Beer.all.alphabetical
+        @beers = current_user.beers.alphabetical
     end
 
     def show
@@ -18,7 +18,7 @@ class BeersController < ApplicationController
     
     
     def new 
-       @beer = Beer.new 
+       @beer = current_user.beers.build 
       #byebug
        # .new instantiates a new AR model, without saving it to the db.
        @beer.reviews.build
@@ -27,8 +27,9 @@ class BeersController < ApplicationController
 
     def create 
         @beer = current_user.beers.build(beer_params)
-        byebug
-        if @beer.save
+        #byebug
+        if @beer.valid?
+            @beer.save
             redirect_to @beer
         else
             render :new
@@ -60,6 +61,6 @@ class BeersController < ApplicationController
     end
 
     def beer_params
-        params.require(:beer).permit(:name, :abv, :description, :brewery_id, :review_id, brewery_attributes: [], review_attributes: [:name, :content, :rating])
+        params.require(:beer).permit(:name, :abv, :description, :user_id, :brewery_id, :review_id, reviews_attributes: [:title, :content, :rating])
     end
 end

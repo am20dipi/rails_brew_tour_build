@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
 
   resources :beers do 
-    resources :reviews, only: [:new, :index, :show]
+    resources :reviews, shallow: true
   end
   # '/beers/:beer_id/reviews'
   # '/beers/:beer_id/reviews/new'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   # '
 
   resources :breweries do
-    resources :beers, only: [:index]
+    resources :beers, shallow: true
   end
 
   # '/breweries/:brewery_id/beers'
