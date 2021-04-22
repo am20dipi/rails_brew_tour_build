@@ -1,5 +1,6 @@
 class Brewery < ApplicationRecord
     has_many :beers
+    belongs_to :user
 
 
     validates :name, presence: true, uniqueness: true

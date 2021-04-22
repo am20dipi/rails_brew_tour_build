@@ -3,7 +3,7 @@ class BreweriesController < ApplicationController
     before_action :logged_in?, only: [:new, :create, :update, :destroy]
 
     def index
-        #byebug
+        byebug
         if logged_in?
             @breweries = current_user.breweries.all
             render :'breweries/index'
@@ -42,6 +42,7 @@ class BreweriesController < ApplicationController
     def update
         @brewery.update(brewery_params) 
         if @brewery.valid?
+            @brewery.save
             redirect_to @brewery
         else
             render :edit

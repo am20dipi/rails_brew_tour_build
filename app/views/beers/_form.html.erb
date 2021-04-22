@@ -3,7 +3,7 @@
     <%= form_builder.text_field :name %><br><br>
 
     <%= form_builder.label "ABV %" %>
-    <%= form_builder.number_field :abv %><br><br>
+    <%= form_builder.number_field :abv, step: 0.5  %><br><br>
 
     <%= form_builder.label :description %>
     <%= form_builder.text_area :description %><br><br>

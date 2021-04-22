@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_192056) do
+ActiveRecord::Schema.define(version: 2021_04_22_223225) do
 
   create_table "beers", force: :cascade do |t|
     t.string "name"
-    t.float "abv"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "brewery_id"
     t.integer "user_id"
+    t.decimal "abv", precision: 4, scale: 1
   end
 
   create_table "breweries", force: :cascade do |t|
