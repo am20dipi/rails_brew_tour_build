@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     before_action :logged_in?, only: [:create, :update, :destroy]
     
     def index
+        redirect_if_not_logged_in
         # how can I check if this is nested?
         if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
             # this means nested; if the url has .../:beer_id/...
@@ -10,7 +11,7 @@ class ReviewsController < ApplicationController
             @reviews = @beer.reviews
         else
             @error = "That beer does not exist." if params[:beer_id]
-            @reviews = Review.all.newest_to_oldest
+            @reviews = current_user.reviews.newest_to_oldest
         end
         # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
     end
@@ -57,7 +58,7 @@ class ReviewsController < ApplicationController
 
     def destroy 
         @review.destroy
-        redirect_to beer_reviews_path
+        redirect_to reviews_path
     end
 
     private

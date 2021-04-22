@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
             # MEMOIZATION
         end
 
+        def redirect_if_logged_in
+            redirect_to user_path(current_user) if current_user
+        end
+
 end

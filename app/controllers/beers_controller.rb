@@ -27,8 +27,8 @@ class BeersController < ApplicationController
 
     def create 
         @beer = current_user.beers.build(beer_params)
-        if @beer.valid?
-            @beer.save
+        byebug
+        if @beer.save
             redirect_to @beer
         else
             render :new
@@ -60,6 +60,6 @@ class BeersController < ApplicationController
     end
 
     def beer_params
-        params.require(:beer).permit(:name, :abv, :description, :user_id, :brewery_id, :review_id, brewery_attributes: [], review_attributes: [])
+        params.require(:beer).permit(:name, :abv, :description, :brewery_id, :review_id, brewery_attributes: [], review_attributes: [:name, :content, :rating])
     end
 end
