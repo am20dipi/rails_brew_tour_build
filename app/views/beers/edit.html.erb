@@ -1,7 +1,7 @@
-<h1>Edit <%= @beer.name %></h1>
+<h1>Edit "<%= @beer.name %>"</h1>
 <%= render partial: "errors", locals: {object: @beer} %>
 <br>
-<div>
+<div class="content">
     <%= form_with(model: @beer) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
         
@@ -10,7 +10,7 @@
         </div>
     <% end %>
 </div>
-
+<br>
 <div class="bottom-nav">
     <a class="bottom-nav-link <%= active_css(beer_path(@beer)) %>" href="/beers/<%= @beer.id %>">Nevermind!</a>
 </div>
