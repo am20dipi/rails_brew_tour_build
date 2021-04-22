@@ -9,9 +9,7 @@
 
 <div class="bottom-nav">
     <a class="bottom-nav-link <%= active_css(edit_review_path(@review)) %>" href="/reviews/<%= @review.id %>/edit">Edit</a><br><br>
-    <%= form_with(model: @review, method: :delete) do |f| %>
-         <%= f.submit "Delete", class: "delete-button" %>
-    <% end %>
+    <%= render partial: "delete_button", locals: {object: @review} %>
 </div>
 
 <br><br>
