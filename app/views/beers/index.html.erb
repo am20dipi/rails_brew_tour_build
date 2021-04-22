@@ -1,10 +1,11 @@
 <h1>Beers</h1>
 
-<di class="content">
+<div class="content">
     <% @beers.each do |beer| %>
         <p><%= link_to beer.name, beer_path(beer.id) %> </p>
         <p><%= beer.abv %> Alcohol by Volume</p>
         <p><%= beer.description %></p>
-        
     <% end %>
 </div>
+
+<%= render partial: "go_back" %>

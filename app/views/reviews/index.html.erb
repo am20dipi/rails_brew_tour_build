@@ -2,6 +2,8 @@
 
  <ul>
     <% @reviews.each do |review| %>
-        <li><%= link_to review.title, review_path(review) %></li>
+        <li><%= link_to review.title, review_path(review) %></li><br>
     <% end %>
 </ul>
+
+<%= render partial: "beers/go_back" %>

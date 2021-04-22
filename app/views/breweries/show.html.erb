@@ -4,6 +4,8 @@
 </div><br><br>
 
 <div class="bottom-nav">
-    <a class="bottom-nav-link <%= active_css(edit_brewery_path(@brewery)) %>" href="/breweries/<%= @brewery.id %>/edit">Edit</a><br><br>
-    <%= render partial: "delete_button", locals: {object: @brewery} %>
+    <a class="bottom-nav-link <%= active_css(edit_brewery_path(@brewery)) %>" href="/breweries/<%= @brewery.id %>/edit">Edit Brewery</a><br><br>
+    <%= render partial: "reviews/delete_button", locals: {object: @brewery} %>
 </div>
+
+<%= render partial: "beers/go_back" %>

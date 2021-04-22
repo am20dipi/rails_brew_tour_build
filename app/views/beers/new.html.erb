@@ -1,17 +1,14 @@
 <h1>Add a New Beer</h1>
-<%= render partial: "errors", locals: {object: @beer} %>
-<br>
+<%= render partial: "errors", locals: {object: @beer} %><br>
+
 <div class="content">
     <%= form_with(model: @beer) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
-
-     
         <br><%= render partial: "reviews/submit_button", locals: {form_builder: f} %>
 
         <div class="bottom-nav">
             <br><a class="bottom-nav-link <%= active_css(beers_path) %>" href="/beers">Nevermind!</a>
         </div>
-
     <% end %>
 </div>
 

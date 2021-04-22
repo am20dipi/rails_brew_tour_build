@@ -12,8 +12,5 @@
     <%= render partial: "delete_button", locals: {object: @review} %>
 </div>
 
-<br><br>
-<div class="bottom-nav">
-    <br><%= link_to 'Back', 'javascript:history.go(-1);' %>
-</div>
+<%= render partial: "beers/go_back" %>
 

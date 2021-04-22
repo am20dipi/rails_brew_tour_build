@@ -2,14 +2,16 @@
 
 
 <div class="content">
-<% if @breweries.count < 1 %>
-    <% @breweries.each do |b| %>
-        <ul>
-            <li><h3><%= link_to b.name, brewery_path(b) %></h3></li>
-        </ul>
+    <% if @breweries.count > 0 %>
+        <% @breweries.each do |b| %>
+            <ul>
+                <li><h3><%= link_to b.name, brewery_path(b) %></h3></li>
+            </ul>
+        <% end %>
+    <% else %>
+        <p>Sorry, you do not have any breweries yet.</p>
+        <p>Add a brewery by clicking the button above!</p>
     <% end %>
-<% else %>
-    <p>Sorry, you do not have any breweries yet.</p>
-    <p>Add a brewery by clicking the button above!</p>
-<% end %>
 </div>
+
+<%= render partial: "beers/go_back" %>

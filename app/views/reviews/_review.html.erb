@@ -1,3 +1,4 @@
 <h3><%= @review.title %></h3>
 <h4>You said: <%= @review.content %></h4>
 <h4>Rating: <%= @review.rating %>/5</h4>
+<h4>You reviewed on: <%= @review.created_at.to_date %></h4>

@@ -6,10 +6,9 @@
         <%= render partial: "form", locals: {form_builder: f} %> 
         
         <br><%= render partial: "submit_button", locals: {form_builder: f} %>
-        
     <% end %>
-</div>
-<br>
+</div><br>
+
 <div class="bottom-nav">
     <a class="bottom-nav-link <%= active_css(review_path(@review)) %>" href="/reviews/<%= @review.id %>">Nevermind!</a>
 </div>
