@@ -73,3 +73,30 @@ Brewery
  - Rails stores the token in the session object: 
     - when a form is submitted, Rails checks that the form's token matches the session's token
  - we are provided the authenticity token(s) through form_for, form_with
+
+
+
+
+def index
+        # how can I check if this is nested?
+        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+            # this means nested; if the url has .../:beer_id/...
+            # AND if @beer is NIL then find the instance of beer by its id
+            @reviews = @beer.reviews
+        else
+            @error = "That beer does not exist." if params[:beer_id]
+            @reviews = Review.all.newest_to_oldest
+        end
+        # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
+    end
+
+
+    def new
+        # if it is nested and we find the beer
+        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+            @review = @beer.reviews.build 
+        else
+            @review = Review.new
+            #form_builders require instance variables
+        end
+    end

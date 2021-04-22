@@ -3,6 +3,7 @@ class BreweriesController < ApplicationController
     before_action :logged_in?, only: [:create, :update, :destroy]
 
     def index
+        #byebug
         if logged_in?
             @breweries = current_user.breweries
             render :'breweries/index'
