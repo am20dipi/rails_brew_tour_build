@@ -10,6 +10,8 @@
     <p>Number of Breweries: <%= @user.breweries.count %></p>
     <p>Number of Beers: <%= @user.beers.count %></p>
     <p>Number of Reviews: <%= @user.reviews.count %></p>
+    <br>
+    <p>Brew Tour Member Since: <%= @user.created_at.strftime("%m/%d/%Y") %></p>
  </div>
 
 
