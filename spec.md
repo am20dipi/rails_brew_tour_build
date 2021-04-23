@@ -9,11 +9,11 @@ Specifications for Rails Project Assessment
 [] Includes a class-level ActiveRecord scope method
 [] Includes necessary model validations 
 [] Includes nested resource routes (new, show, index)
-[] Includes applicable nested form 
-[] Includes validation errors
+[] Includes applicable nested form (new)
+[] Displays validation errors
 [] Utilizes CSS, HTML for styling 
 [] Adheres to DRY coding: 
     [] Includes use of partials
     [] Includes use of helper methods 
     [] Includes use of controller filters 
-    [] Includes general use of abstraction 
+    [] Displays general use of abstraction 
