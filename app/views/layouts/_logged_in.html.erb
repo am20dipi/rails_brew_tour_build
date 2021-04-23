@@ -1,5 +1,5 @@
 
-<%= link_to "Log out", logout_path, method: "delete" %>
+<a class ="navbar-link <%= link_to "Logout", logout_path, method: "delete" %></a>
 <a class="navbar-link <%= active_css(breweries_path)%>" href="/breweries">Breweries</a>
 <a class="navbar-link <%= active_css(new_brewery_path)%>" href="/breweries/new">New Brewery</a>
 <a class="navbar-link <%= active_css(new_beer_path)%>" href="/beers/new">New Beer</a>
