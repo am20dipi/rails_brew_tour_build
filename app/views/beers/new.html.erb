@@ -2,7 +2,7 @@
 <%= render partial: "errors", locals: {object: @beer} %><br>
 
 <div class="content">
-    <%= form_with(model: @beer) do |f| %>
+    <%= form_with(model: @beer, method: :post) do |f| %>
         <%= render partial: "form", locals: {form_builder: f} %> 
         <br><%= render partial: "reviews/submit_button", locals: {form_builder: f} %>
 

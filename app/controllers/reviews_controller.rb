@@ -1,17 +1,16 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :edit, :update, :destroy]
-    before_action :logged_in?, only: [:create, :update, :destroy]
+    before_action :logged_in?, only: [:new, :create, :update, :destroy]
     
     def index
         redirect_if_not_logged_in
         # how can I check if this is nested?
-        if params[:beer_id] && @beer = Beer.find(params[:beer_id])
+        if @beer = Beer.find(params[:beer_id])
             # this means nested; if the url has .../:beer_id/...
             # AND if @beer is NIL then find the instance of beer by its id
             # Rails provides "params[:beer_id] through the nested route we created"
             @reviews = @beer.reviews
         else
-            @error = "That beer does not exist." if params[:beer_id]
             @reviews = current_user.reviews.newest_to_oldest
         end
         # this ensures that the params are a true value; so one does not type "/beers/ruibnfouenofw/reviews" and retrieve results
@@ -25,7 +24,7 @@ class ReviewsController < ApplicationController
 
     def new
         # if it is nested and we find the beer
-        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
+        if @beer = Beer.find_by_id(params[:beer_id])
             @review = @beer.reviews.build 
         else
             @review = Review.new
@@ -69,6 +68,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:title, :content, :rating, :user_id, :beer_id)
+        params.require(:review).permit(:title, :content, :rating, :beer_id)
     end
 end

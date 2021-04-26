@@ -9,7 +9,7 @@
     <%= form_builder.text_area :description %><br><br>
 
     <%= form_builder.label :brewery %>
-    <%= form_builder.collection_select(:brewery_id, Brewery.all, :id, :name, {prompt: "Select A Brewery"}, prompt: true) %><br><br>
+    <%= form_builder.collection_select(:brewery_id, current_user.breweries.all, :id, :name, {prompt: "Select A Brewery"}, prompt: true) %><br><br>
     <hr><h4>Add a Review</h4>
         <%= form_builder.fields_for :review do |review_field| %>
             <%= review_field.label :title %>

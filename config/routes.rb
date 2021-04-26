@@ -18,22 +18,20 @@ Rails.application.routes.draw do
 
 
   resources :beers do 
-    resources :reviews, shallow: true
+    resources :reviews, shallow: true 
   end
-  # '/beers/:beer_id/reviews'
-  # '/beers/:beer_id/reviews/new'
-  # '/beers/:beer_id/reviews/:review_id
+  # '/beers/:beer_id/reviews'  INDEX  beer_reviews_path
+  # '/beers/:beer_id/reviews/new'  NEW  new_beer_review_path
 
   # shallow routing parameter: will leave INDEX, NEW, CREATE at the nested level - so the routes are not visually long in the URL
 
   resources :users 
   resources :reviews 
 
-  resources :breweries do
-    resources :beers, shallow: true
+  resources :breweries do 
+    resources :beers, only: [:index, :show]
   end
 
-  # '/breweries/:brewery_id/beers'
 
 
   
