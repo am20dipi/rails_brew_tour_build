@@ -133,12 +133,11 @@ p {
 }
 
 .form-button {
-    border: none;
     border-radius: 60px;
     font-size: 16px;
     color: white;
     background-color: rgba(138, 170, 64, 0.74);
-    height: 28px;
+    border: none;
     padding: 12px 18px;
     transition: .15s background-color;
     display: inline-block;
