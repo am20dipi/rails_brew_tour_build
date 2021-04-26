@@ -3,13 +3,12 @@ class BeersController < ApplicationController
     before_action :logged_in?, only: [:create, :update, :destroy]
     
     def index
-        if logged_in?
-            @beers = current_user.beers
-            render :'beers/index'
+        redirect_if_not_logged_in
+        if params[:brewery_id] && @brewery = Brewery.find(params[:brewery_id])
+            @beers = @brewery.beers
         else
-            redirect_if_not_logged_in
+            @beers = current_user.beers.alphabetical
         end
-        @beers = current_user.beers.alphabetical
     end
 
     def show
@@ -18,18 +17,20 @@ class BeersController < ApplicationController
     
     
     def new 
-       @beer = current_user.beers.build 
-      #byebug
-       # .new instantiates a new AR model, without saving it to the db.
-       @beer.reviews.build
-       # .build instantiates, does not CREATE
+        if params[:brewery_id] && @brewery = Brewery.find(params[:brewery_id])
+            @beer = @brewery.beers.build
+        # .new instantiates a new AR model, without saving it to the db.
+        # .build instantiates, does not CREATE
+        else
+            @beer = Beer.new
+        end
+      
     end
 
     def create 
         @beer = current_user.beers.build(beer_params)
         #byebug
-        if @beer.valid?
-            @beer.save
+        if @beer.save
             redirect_to @beer
         else
             render :new

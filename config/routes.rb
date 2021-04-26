@@ -26,14 +26,8 @@ Rails.application.routes.draw do
 
   # shallow routing parameter: will leave INDEX, NEW, CREATE at the nested level - so the routes are not visually long in the URL
 
-  post '/beers/:beer_id/reviews' => 'reviews#create'
-
-  resources :users do 
-    resources :beers, shallow: true 
-  end
-  # '/users/:user_id/beers'
-  # '/users/:user_id/beers/new'
-  # '
+  resources :users 
+  resources :reviews 
 
   resources :breweries do
     resources :beers, shallow: true
@@ -42,5 +36,5 @@ Rails.application.routes.draw do
   # '/breweries/:brewery_id/beers'
 
 
-  resources :reviews 
+  
 end
