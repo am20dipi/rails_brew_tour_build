@@ -2,15 +2,15 @@
     <%= form_builder.label :name %>
     <%= form_builder.text_field :name %><br><br>
 
-    <%= form_builder.label "ABV %" %>
+    <%= form_builder.label "ABV%" %>
     <%= form_builder.number_field :abv, step: 0.5  %><br><br>
 
     <%= form_builder.label :description %>
     <%= form_builder.text_area :description %><br><br>
 
-    <%= form_builder.label :brewery %>
-    <%= form_builder.collection_select(:brewery_id, current_user.breweries.all, :id, :name, {prompt: "Select A Brewery"}, prompt: true) %><br><br>
-    <hr><h4>Add a Review</h4>
+    <%= form_builder.label :brewery if current_user.breweries.exists? %>
+    <%= form_builder.collection_select(:brewery_id, current_user.breweries.all, :id, :name, {prompt: "Select A Brewery"}) if current_user.breweries.exists?%><br><br>
+    <h2>Add a Review</h2>
         <%= form_builder.fields_for :review do |review_field| %>
             <%= review_field.label :title %>
             <%= review_field.text_field :title %><br><br>
@@ -18,7 +18,7 @@
             <%= review_field.label :content %>
             <%= review_field.text_area :content %><br><br>
 
-            <%= review_field.label :rating %>
+            <%= review_field.label :rating %> (0-5)
             <%= review_field.number_field :rating %><br><br>
         <% end %> 
 

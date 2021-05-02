@@ -4,11 +4,8 @@ class BeersController < ApplicationController
     
     def index
         redirect_if_not_logged_in
-        if params[:brewery_id] && @brewery = Brewery.find(params[:brewery_id])
-            @beers = @brewery.beers
-        else
-            @beers = current_user.beers.alphabetical
-        end
+        @beers = current_user.beers.alphabetical
+        
     end
 
     def show

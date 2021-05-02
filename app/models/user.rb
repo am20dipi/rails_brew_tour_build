@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :reviews
-    has_many :beers, through: :reviews
+    has_many :beers
+    has_many :reviews, through: :beers
     has_many :breweries 
 
     has_secure_password #authenticate, auto validates the password

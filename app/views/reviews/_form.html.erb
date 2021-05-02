@@ -5,7 +5,7 @@
     <%= form_builder.label :content %>
     <%= form_builder.text_area :content %><br><br>
 
-    <%= form_builder.label :rating %>
+    <%= form_builder.label :rating, "Rating (0-5)"%>
     <%= form_builder.number_field :rating %><br><br>
 
     <% if params[:beer_id] %>

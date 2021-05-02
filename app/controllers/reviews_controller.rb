@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     def index
         redirect_if_not_logged_in
         # how can I check if this is nested?
-        if @beer = Beer.find(params[:beer_id])
+        if params[:beer_id] && @beer = Beer.find(params[:beer_id])
             # this means nested; if the url has .../:beer_id/...
             # AND if @beer is NIL then find the instance of beer by its id
             # Rails provides "params[:beer_id] through the nested route we created"
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
     def new
         # if it is nested and we find the beer
-        if @beer = Beer.find_by_id(params[:beer_id])
+        if params[:beer_id] && @beer = Beer.find_by_id(params[:beer_id])
             @review = @beer.reviews.build 
         else
             @review = Review.new
