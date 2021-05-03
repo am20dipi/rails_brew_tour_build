@@ -4,7 +4,7 @@
     <% @brewery.beers.each do |beer| %>
         <li><%= link_to beer.name, brewery_beer_path(@brewery, beer.id) %></li>
     <% end %>
-    <br><%= link_to "For More Information on Featured Beers", brewery_beers_path(@brewery) %>
+    <br><br><%= link_to "For More Information on Featured Beers", brewery_beers_path(@brewery) %>
 <% else %>
     <p>Sorry, you don't have any beers yet.</p>
     <p>Add a Beer by clicking the button in the nav bar!</p>
