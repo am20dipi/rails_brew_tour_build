@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :reviews, through: :beers
     has_many :breweries 
 
-    has_secure_password #authenticate, auto validates the password
+    has_secure_password 
     validates :email, presence: { message: "Email must be given" }, uniqueness: true
     validates :name, presence: { message: "Name must be given" }, length: {in: 2..40 } 
 
@@ -13,8 +13,6 @@ class User < ApplicationRecord
             u.email = response[:info][:email]
             u.name = response[:info][:name]
             u.password = SecureRandom.hex(15)
-            # assigning a random password to avoid hacking
-
         end
     end
 

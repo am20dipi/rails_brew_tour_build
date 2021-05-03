@@ -3,7 +3,7 @@
 
 <div class="content">
     <%= form_for(@user) do |f| %>
-        <!-- to use "@user", I defined the instance variable in the UsersController in the new method -->
+      
         <%= f.label :name %>
         <%= f.text_field :name %><br><br>
 
@@ -12,11 +12,9 @@
 
         <%= f.label :password %>
         <%= f.password_field :password %><br><br>
-        <!-- we use :password instead of :password_digest to avoid storing the string -->
 
 
         <%= f.submit "Submit", class: "form-button" %>
 
     <% end %>
 </div>
-<!-- after submission, our application sends us to the "/users" action>

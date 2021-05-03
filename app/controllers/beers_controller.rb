@@ -16,8 +16,7 @@ class BeersController < ApplicationController
         redirect_if_not_logged_in
         @beer = Beer.new
         @beer.reviews.build
-        # .build instantiates, does not CREATE
-        # .new instantiates a new AR model, without saving it to the db.
+
     end
 
     def create 
@@ -26,7 +25,6 @@ class BeersController < ApplicationController
         if @beer.save
             redirect_to @beer
         else
-            @beer.reviews.build
             render :new
         end
     end

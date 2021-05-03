@@ -11,11 +11,9 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:user][:email])
         if user && user.authenticate(params[:user][:password])
-        # if a user exists AND the user is authenticated via password
             session[:user_id] = user.id
 
             redirect_to user_path(user)
-            # user_path(user) is the same as "/users/:id"
         else
             flash[:message] = "Sorry, please try again."
             render :new
@@ -25,11 +23,8 @@ class SessionsController < ApplicationController
     def omniauth
         user = User.from_omniauth(request.env['omniauth.auth'])
         if user.valid?
-        # if a user exists AND the user is authenticated via password
             session[:user_id] = user.id
-
             redirect_to user_path(user)
-            # user_path(user) is the same as "/users/:id"
         else
             flash[:message] = "Sorry, please try again."
             redirect_to '/login'
