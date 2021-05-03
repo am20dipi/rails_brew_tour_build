@@ -22,17 +22,17 @@ html, body {
 
 /* --- Welcome Page Styles --- */
 body {
-    background-color: rgba(241, 200, 110, 0.74);
+    background-color: rgba(219, 238, 200, 0.74);
     color: #333;
     font-family: 'Courier New', Courier, monospace;
     line-height: 18px;
 }
 
 .wrapper {
-    background: rgb(241, 216, 170);
+    background: rgba(139, 167, 94, 0.74);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(141, 51, 51, 0.644);
+    box-shadow: 0 0 10px rgba(8, 0, 0, 0.959);
     margin: 16px auto;
     max-width: 50%;
     padding: 2.25%; /* 18px / 800px */
@@ -70,10 +70,10 @@ ul  li {
 }
 
 div.navbar {
-    position: relative;
+    display: inline-block;
     background: rgba(238, 238, 238, 0);
     text-align: center;
-    padding: 1.5%; /* 5px / 240px */
+    padding: 0.75%; /* 5px / 240px */
     width: 100%; /* 240px / 800px */
     max-width: 100%;    
     min-width: 1000px;
@@ -81,7 +81,7 @@ div.navbar {
 
 a.navbar-link {
     border-radius: 40px;
-    background-color: rgba(238, 194, 101, 0.74);
+    background-color: rgba(120, 141, 72, 0.74);
     color: white;
     font: strong;
     font-size: 16px;

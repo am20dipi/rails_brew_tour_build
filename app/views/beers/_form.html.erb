@@ -11,15 +11,15 @@
     <%= form_builder.label :brewery if current_user.breweries.exists? %>
     <%= form_builder.collection_select(:brewery_id, current_user.breweries.all, :id, :name, {prompt: "Select A Brewery"}) if current_user.breweries.exists?%><br><br>
     <h2>Add a Review</h2>
-        <%= form_builder.fields_for :review do |review_field| %>
-            <%= review_field.label :title %>
-            <%= review_field.text_field :title %><br><br>
+        <%= form_builder.fields_for :reviews do |reviews_field| %>
+            <%= reviews_field.label :title %>
+            <%= reviews_field.text_field :title %><br><br>
 
-            <%= review_field.label :content %>
-            <%= review_field.text_area :content %><br><br>
+            <%= reviews_field.label :content %>
+            <%= reviews_field.text_area :content %><br><br>
 
-            <%= review_field.label :rating %> (0-5)
-            <%= review_field.number_field :rating %><br><br>
+            <%= reviews_field.label :rating %> (0-5)
+            <%= reviews_field.number_field :rating %><br><br>
         <% end %> 
 
 

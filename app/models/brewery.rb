@@ -1,5 +1,5 @@
 class Brewery < ApplicationRecord
-    has_many :beers
+    has_many :beers, dependent: :destroy
     belongs_to :user
     accepts_nested_attributes_for :beers
 

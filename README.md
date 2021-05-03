@@ -33,8 +33,11 @@ the MVC structure
 RESTful Routes
 a SQLite Database
 ActiveRecord
-Sessions & Registrations (login, logout, and signup)
-CRUD actions
+Sessions & Registrations (login, logout, and signup, OMNIauth)
+CRUD Actions
+Forms (nested forms, form builders, form helpers)
+Nested Routes
+
 
 
 Instructions

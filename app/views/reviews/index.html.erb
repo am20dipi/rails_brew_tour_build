@@ -2,14 +2,11 @@
 
 <div class="wrapper">
  <ul>
- <% if @reviews.count > 0 %>
+ 
     <% @reviews.each do |review| %>
         <li><%= link_to review.title, review_path(review) %></li><br>
     <% end %>
-<% else %>
-    <p>Sorry, you have not reviewed this beer yet.</p>
-    <p>Go back to review this beer.</p>
-<% end %>
+
 </ul>
 </div>
 
