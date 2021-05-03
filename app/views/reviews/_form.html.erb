@@ -6,7 +6,7 @@
     <%= form_builder.text_area :content %><br><br>
 
     <%= form_builder.label :rating, "Rating (0-5)"%>
-    <%= form_builder.number_field :rating %><br><br>
+    <%= form_builder.number_field :rating, min: 0, max: 5 %><br><br>
 
     <% if params[:beer_id] %>
         <%= form_builder.hidden_field :beer_id %>

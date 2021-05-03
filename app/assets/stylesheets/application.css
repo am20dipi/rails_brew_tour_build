@@ -152,7 +152,7 @@ p {
 
 div.bottom-nav {
     position: relative;
-    display: inline-block;
+    display: block;
     background: rgba(238, 238, 238, 0);
     text-align: center;
     padding: 1.0%; /* 5px / 240px */
